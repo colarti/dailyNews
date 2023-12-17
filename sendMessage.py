@@ -13,14 +13,8 @@ def send_message(msg):
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(username, password)
-        # try:
         server.sendmail(username, receiver, msg)
         
-        # except UnicodeEncodeError:
-        #     print(f'ERROR - Look into: {UnicodeEncodeError.reason}')
-
-    
-
 
 if __name__ == '__main__':
     content = '''\
