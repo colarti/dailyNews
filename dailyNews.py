@@ -7,10 +7,11 @@ from sendMessage import send_message
 
 API_KEY = '6a7c75fa90b540bf90732f5cd854e822'
 
-topic = 'war'
+topic = 'tesla'
 date = time.strftime("%Y-%m-%d")
+date = '2023-12-15'
 
-site = f'https://newsapi.org/v2/everything?q={topic}&from={date}&sortBy=publishedAt&apiKey=6a7c75fa90b540bf90732f5cd854e822'
+site = f'https://newsapi.org/v2/everything?q={topic}&from={date}&sortBy=publishedAt&language=en&apiKey=6a7c75fa90b540bf90732f5cd854e822'
 
 data = requests.get(url=site)
 content = data.json()
@@ -20,11 +21,7 @@ status = f'''\
 Subject: {topic.title()} News for {date}
 '''
 cnt = 0
-for idx, article in enumerate(content["articles"]):
-    # print(article, '\n')
-    # print(f'{idx+1}. {article["title"]}\n')
-    # print(f'\t{article["description"]} \n')
-
+for idx, article in enumerate(content["articles"][:20]):    #the first 20 articles
     try:
         if article["title"] is None:
             continue
