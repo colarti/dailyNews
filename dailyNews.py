@@ -9,7 +9,7 @@ API_KEY = '6a7c75fa90b540bf90732f5cd854e822'
 
 topic = 'tesla'
 date = time.strftime("%Y-%m-%d")
-date = '2023-12-15'
+# date = '2023-12-15'
 
 site = f'https://newsapi.org/v2/everything?q={topic}&from={date}&sortBy=publishedAt&language=en&apiKey=6a7c75fa90b540bf90732f5cd854e822'
 
@@ -40,5 +40,5 @@ for idx, article in enumerate(content["articles"][:20]):    #the first 20 articl
 
 status = status.encode('utf-8')
 
-print(status)
+# print(status)
 send_message(status)
